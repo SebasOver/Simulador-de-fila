@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Simulador de Cola de Banco</title>
+</head>
+<body>
+  <audio autoplay="true" loop="true">
+    <source src="src/audio1.wav" type="audio/wav" />
+  </audio>
+  <h1>Simulador de Cola de Banco</h1>
+  <div id="contenedor">
+    <div id="cola">
+      <h2><i class="fas fa-users"></i> Cola de clientes:</h2>
+      <div id="listaClientes"></div>
+    </div>
+    <div id="cajero">
+      <h2><i class="fas fa-user-tie"></i> Cajero</h2>
+      <div id="imgsCajero">
+        <div id="primerCliente"></div>
+        <img id="imagenCajero" src="src/Cajero.png" alt="Cajero">
+      </div>
+      <p id="clienteActual">Cliente actual: No hay cliente siendo atendido</p>
+      <button onclick="atenderCliente()"><i class="fas fa-check"></i> Atender Siguiente Cliente</button>
+    </div>
+  </div>
+
+  <button onclick="mostrarFormulario()"><i class="fas fa-user-plus"></i> Agregar Cliente a la Cola</button>
+
+  <div id="formularioCliente">
+    <h2><i class="fas fa-user"></i> Ingrese el nombre y género del cliente:</h2>
+    <form onsubmit="return agregarCliente()">
+      <input type="text" id="nombreClienteInput" placeholder="Nombre del cliente" required>
+      <select id="generoClienteInput" required>
+        <option value="" disabled selected>Seleccione el género</option>
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+      </select>
+      <button type="submit"><i class="fas fa-plus"></i> Agregar</button>
+    </form>
+  </div>
+
+  <div id="eliminarClienteDiv">
+    <h2><i class="fas fa-user-slash"></i> Eliminar Cliente(s):</h2>
+    <select id="eliminarClienteSelect" multiple></select>
+    <button onclick="eliminarCliente()"><i class="fas fa-trash-alt"></i> Eliminar Cliente(s) Seleccionado(s)</button>
+  </div>
+  <script src="funciones.js"></script>
+</body>
+</html>
